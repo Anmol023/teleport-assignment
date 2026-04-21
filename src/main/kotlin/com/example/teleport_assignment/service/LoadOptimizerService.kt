@@ -12,6 +12,8 @@ class LoadOptimizerService {
     fun optimizeLoad(request: LoadOptimizerRequest): LoadOptimizerResponse {
 
         val validOrders = request.orders.filter { isDateWindowValid(it) }
+        if(validOrders.isEmpty()) return LoadOptimizerResponse.buildEmptyResponse(request.truck.id)
+
         val ordersByLocation = validOrders.groupBy { it.origin to it.destination }
 
         var globalBestPayout = 0L

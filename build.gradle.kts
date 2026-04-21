@@ -22,6 +22,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
 	// Source: https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
 	implementation("jakarta.validation:jakarta.validation-api:3.1.1")
 	implementation("tools.jackson.module:jackson-module-kotlin")
@@ -30,6 +31,8 @@ dependencies {
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	// Source: https://mvnrepository.com/artifact/io.kotest/kotest-assertions-core-jvm
 	testImplementation("io.kotest:kotest-assertions-core-jvm:6.1.11")
+	// Source: https://mvnrepository.com/artifact/org.mockito.kotlin/mockito-kotlin
+	testImplementation("org.mockito.kotlin:mockito-kotlin:6.3.0")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
