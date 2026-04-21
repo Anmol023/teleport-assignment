@@ -8,3 +8,9 @@ load-optimizer:
     payout: 60
     weight-utilization: 20
     volume-utilization: 20
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

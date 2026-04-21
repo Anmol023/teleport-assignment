@@ -138,8 +138,8 @@ class LoadOptimizerService(
         return when (loadOptimizerConfig.strategy) {
             OptimizationStrategy.MAX_PAYOUT -> currPayoutCents.toDouble()
             OptimizationStrategy.MAX_UTILIZATION -> (weightPercent + volumePercent) / 2.0
-            OptimizationStrategy.BALANCED -> with(loadOptimizerConfig.weights) {
-                (payout * payoutPercent + weightUtilization * weightPercent + volumeUtilization * volumePercent) / total
+            OptimizationStrategy.BALANCED -> with(loadOptimizerConfig) {
+                (this.weights.payout!! * payoutPercent + this.weights.weightUtilization!! * weightPercent + this.weights.volumeUtilization!! * volumePercent) / total!!
             }
         }
     }

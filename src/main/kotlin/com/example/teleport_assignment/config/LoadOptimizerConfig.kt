@@ -5,23 +5,24 @@ import org.springframework.boot.context.properties.bind.DefaultValue
 
 @ConfigurationProperties("load-optimizer")
 data class LoadOptimizerConfig(
-    @DefaultValue("MAX_PAYOUT")
     val strategy: OptimizationStrategy = OptimizationStrategy.MAX_PAYOUT,
     val weights: StrategyWeights = StrategyWeights()
-)
-
-data class StrategyWeights(
-    @DefaultValue("60") val payout: Int = 60,
-    @DefaultValue("20") val weightUtilization: Int = 20,
-    @DefaultValue("20") val volumeUtilization: Int = 20
-) {
-    val total = payout + weightUtilization + volumeUtilization
+){
+    val total = weights.volumeUtilization?.let { weights.weightUtilization?.let { weights.payout?.plus(it) }?.plus(it) }
     init {
-        require(payout + weightUtilization + volumeUtilization == 100) {
-            "Strategy weights must sum to 100, got: ${payout + weightUtilization + volumeUtilization}"
+        if(strategy.name == OptimizationStrategy.BALANCED.name){
+            require(total == 100 && weights.payout != null && weights.weightUtilization != null && weights.volumeUtilization != null) {
+                "Strategy weights must sum to 100, got: $total"
+            }
         }
     }
 }
+
+data class StrategyWeights(
+    val payout: Int? = 60,
+    val weightUtilization: Int? = 20,
+    val volumeUtilization: Int? = 20
+)
 
 enum class OptimizationStrategy {
     MAX_PAYOUT,
