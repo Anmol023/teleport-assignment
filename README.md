@@ -62,7 +62,5 @@ sample response:
 ```
 
 ## Remaining Tasks:-
-1. Validate Request
-2. Add Caching if same request no need to calculate again
-3. Add configurable parameters for optimization (e.g. prioritize payout vs utilization)
-4. Exception handling
+1. Add Caching if same request no need to calculate again
+2. Add docker file and docker compose file to run in docker container

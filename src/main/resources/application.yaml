@@ -1,3 +1,10 @@
 spring:
   application:
     name: teleport-assignment
+
+load-optimizer:
+  strategy: BALANCED
+  weights:
+    payout: 60
+    weight-utilization: 20
+    volume-utilization: 20
