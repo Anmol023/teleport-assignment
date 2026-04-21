@@ -22,10 +22,14 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	// Source: https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
+	implementation("jakarta.validation:jakarta.validation-api:3.1.1")
 	implementation("tools.jackson.module:jackson-module-kotlin")
 	testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+	// Source: https://mvnrepository.com/artifact/io.kotest/kotest-assertions-core-jvm
+	testImplementation("io.kotest:kotest-assertions-core-jvm:6.1.11")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

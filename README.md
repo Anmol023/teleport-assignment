@@ -60,3 +60,9 @@ sample response:
   "utilization_volume_percent": 70
 }
 ```
+
+## Remaining Tasks:-
+1. Validate Request
+2. Add Caching if same request no need to calculate again
+3. Add configurable parameters for optimization (e.g. prioritize payout vs utilization)
+4. Exception handling
