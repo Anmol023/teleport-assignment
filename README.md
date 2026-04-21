@@ -3,15 +3,15 @@
 ```bash
     git clone <your-repo>
     cd <folder>
-    docker compose up --build (Note: `MAX_PAYOUT` is the default strategy; see [Strategies](#strategies) for other options).
-# → Service will be available at http://localhost:8080
+    docker compose up --build (Note: `MAX_PAYOUT` is the default strategyU).
 ```
+Service will be available at http://localhost:8080
 
 # Health Check
 ```bash
     curl http://localhost:8080/actuator/health
-# → Should return 200 OK with message "Service is healthy"
 ```
+Should return 200 OK with message "Service is healthy"
 
 # Strategies
 ### For Configuring weight from docker compose
@@ -33,7 +33,8 @@
   LOAD_OPTIMIZER_WEIGHTS_WEIGHT_UTILIZATION=20 \
   LOAD_OPTIMIZER_WEIGHTS_VOLUME_UTILIZATION=20 \
   docker compose up --build
-``` -> LOAD_OPTIMIZER_WEIGHTS_PAYOUT + LOAD_OPTIMIZER_WEIGHTS_WEIGHT_UTILIZATION + LOAD_OPTIMIZER_WEIGHTS_VOLUME_UTILIZATION should be 100
+```
+LOAD_OPTIMIZER_WEIGHTS_PAYOUT + LOAD_OPTIMIZER_WEIGHTS_WEIGHT_UTILIZATION + LOAD_OPTIMIZER_WEIGHTS_VOLUME_UTILIZATION should be 100
 
 # Constraints for the load optimization:
 ## 1. Per-order date validity
